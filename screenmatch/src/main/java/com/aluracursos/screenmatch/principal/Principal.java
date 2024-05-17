@@ -50,7 +50,6 @@ public class Principal {
                 case 3:
                     mostarSeriesBuscadas();
                     break;
-
                 case 0:
                     System.out.println("Cerrando la aplicación...");
                     break;
@@ -89,11 +88,12 @@ public class Principal {
     }
 
     private void mostarSeriesBuscadas(){
-        List<Serie> series = new ArrayList<>();
-
-        series = datosSeries.stream()
-                .map(d -> new Serie(d))
-                        .collect(Collectors.toList());
+//        List<Serie> series = new ArrayList<>();
+//
+//        series = datosSeries.stream()
+//                .map(d -> new Serie(d))
+//                        .collect(Collectors.toList());
+        List<Serie> series = this.repository.findAll();
 
         series.stream()
                 .sorted(Comparator.comparing(Serie::getGenero))
