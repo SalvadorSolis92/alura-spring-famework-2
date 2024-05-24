@@ -35,6 +35,7 @@ public class Principal {
                     3 - Mostrar series buscadas
                                   
                     0 - Salir
+                    
                     """;
             System.out.println(menu);
             opcion = teclado.nextInt();
@@ -80,11 +81,11 @@ public class Principal {
 //        temporadas.forEach(System.out::println);
 
         mostarSeriesBuscadas();
-        System.out.println("Escribe el nombre de la serie para buscar sus episodios");
+        System.out.println("Escribe el nombre de la serie para obtener la lista de sus episodios");
         var nombreSerie = teclado.nextLine();
 
         Optional<Serie> serie = this.series.stream()
-                .filter(s-> s.getTitulo().toLowerCase().contains(nombreSerie.toLowerCase()))
+                .filter(s -> s.getTitulo().toLowerCase().contains(nombreSerie.toLowerCase()))
                 .findFirst();
 
         if (serie.isPresent()) {
